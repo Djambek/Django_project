@@ -42,7 +42,6 @@ class BookStatus():
 def books_list(request):
     username= User.objects.get(username=request.user.username)
     books = Book.objects.filter(people_book=username).order_by('published_date')
-    print(books[0])
     status = {}
     for i in books:
         status[i.book_name] = BookStatus(i.book_name).book_in_litnet()
@@ -53,7 +52,7 @@ def books_list(request):
 def desc(request, id_):
     book = Book.objects.filter(id=id_)
     status = BookStatus(str(book[0].book_name)).book_in_litnet()
-    print(status)
+
     return render(request, "books/b.html", {'book': book[0], "status": status})
 
 
@@ -103,7 +102,6 @@ def sure_del(request, id_):
 def book_edit(request, id_):
     username = User.objects.get(username=request.user.username)
     book = Book.objects.filter(id=id_, people_book=username)[0]
-    print(book)
     if request.method == "POST":
         form = BookForm(request.POST)
         if form.is_valid():
