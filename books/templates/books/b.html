@@ -1,0 +1,24 @@
+{% extends 'books/base.html' %}
+% block content %}
+{% load static %}
+<div>
+    <h1>{{book.book_name}}</h1>
+    <h2>{{ book.autor_book }}</h2>
+</div>
+    <div>
+        <form action="/{{book.id}}/edit/" target="_blank">
+                        <button> <img src={% static "images/edit.png" %} width="20" height="20" href="{{book.id}}/edit/" > </button>
+        </form>
+        <h3>Описание: </h3>
+        <p> да_да тут бы переменную</p>
+        <h3> Статус:</h3>
+        <p>{{status}}</p>
+        <!--    тут бы картиночку обложнки вставить    -->
+    </div>
+<div>
+    <form style="text-align: center" action="/books_list">
+        <button>назад</button>
+    </form>
+
+</div>
+{% endblock %}

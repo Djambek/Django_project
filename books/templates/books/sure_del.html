@@ -1,0 +1,17 @@
+{% extends 'books/base.html' %}
+{% block content %}
+<style>
+    #button{
+         background-color: red;
+         color: white;
+
+    }
+</style>
+<h2>Точно хотите удалить {{book.book_name}}?</h2>
+    <form style="text-align: center" action="/{{book.id}}/del">
+        <button id="button">Уверен</button>
+    </form>
+    <form style="text-align: center" action="/books_list">
+        <button>назад</button>
+    </form>
+{% endblock %}

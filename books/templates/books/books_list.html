@@ -1,0 +1,68 @@
+{% extends 'books/base.html' %}
+{% block content %}
+{% load static %}
+{% if user.is_authenticated %}
+<!DOCTYPE html>
+  <style>
+/*table, td, th {*/
+/*  order: 1px solid black;*/
+/*}*/
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: auto;
+  text-align: center;
+
+
+  border-bottom: 1px solid #ddd;
+  table-layout: fixed;
+}
+.col1 { width: 10%; }
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+  </style>
+<!--<table>-->
+<!--              <tr>-->
+
+<!--                  <th>Название книги</th>-->
+<!--                  <th>Автор</th>-->
+<!--                  <th>Статус</th>-->
+<!--              </tr>-->
+<!--</table>-->
+
+              {% for book in books %}
+    <div style="overflow-x:auto;">
+        <table>
+            {% if books.0 == book %}
+            <tr>
+                  <th>Название книги</th>
+                  <th>Автор</th>
+                  <th>Статус</th>
+              </tr>
+            {% endif %}
+
+                <td><a href="/{{book.id}}/desc">{{ book.book_name }}</a></td>
+                <td>{{ book.autor_book }}</td>
+                <td>{{ status | get_item:book.book_name }}</td>
+                <td>
+                <form action="/{{book.id}}/edit/" >
+                        <button> <img src={% static "images/edit.png" %} width="20" height="20"  > </button>
+                    </form>
+                    <form action="/{{book.id}}/sure_del/">
+                        <button> <img src={% static "images/rubbish.png" %} width="20" height="20"> </button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    {% endfor %}
+{% else %}
+    <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+{% endif %}
+{% endblock %}
