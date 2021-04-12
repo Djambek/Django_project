@@ -67,7 +67,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         'libraries': {
-            'get_item': 'books.templates.books.custom_tags'
+            'get_item': 'books.templates.books.custom_tags',
+            "index": "books.templates.books.index"
             }
         },
     },

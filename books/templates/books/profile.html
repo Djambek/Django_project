@@ -1,10 +1,17 @@
 {% extends 'books/base.html' %}
 {% block content %}
-<p><a href="/accounts/password_change/"> Сменить пароль</a></p>
+<style>
+    #n {
+        margin: 1%;
+    }
+</style>
+<div id ='n'>
+<p ><a href="/accounts/password_change/"> Сменить пароль</a></p>
 <p><a href="/accounts/password_reset/"> Востановить пароль</a></p>
 <p>Сменить username/email</p>
 <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
+</div>
 {% endblock %}

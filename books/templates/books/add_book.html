@@ -1,12 +1,24 @@
 {% extends 'books/base.html' %}
+{% load index %}
 {% block content %}
-    <h1>Добавить новую книгу</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
+<style>
+    #n{
+        margin:1%;
+    }
+</style>
+<body>
+    <h1 id="n">Добавить новую книгу</h1>
+    <form id="n" method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        <button  id="n" type="submit" class="save btn btn-default">Save</button>
     </form>
 
-<div>
-    {{ok}}
+<div id="n">
+    {% for i in range%}
+        <li> {{book_list|index:i}},      {{autors|index:i}}</li>
+    {% endfor %}
+
+    <p>{{Not_book}}</p>
 </div>
+</body>
 {% endblock %}

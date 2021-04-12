@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<title>W3.CSS Template</title>
+<title>Книжный таймер</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -23,34 +23,35 @@ a{
 {% if user.is_authenticated %}
     <div class="w3-top">
       <div class="w3-bar w3-black w3-card">
-        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a class="w3-bar-item w3-button w3-padding-large  w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
         <a id="head" href="/" class="w3-bar-item  w3-padding-large">Книжный Таймер</aid>
         <a href="/books_list" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Мои книги</a>
         <a href="/add_book" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Добавить книгу</a>
-        <a href="/profile" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Мой профиль ({{user.username}}) </a>
-        <a href="/accounts/logout" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-hover-red w3-right">Выход</a>
+        <a href="/profile" class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-small">Мой профиль ({{user.username}}) </a>
+        <a href="/accounts/logout" class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-small w3-hover-red w3-right">Выход</a>
         </div>
     </div>
-    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large  w3-top" style="margin-top:46px">
 <!--        <a href="/" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Книжный таймер</a>-->
         <a href="/books_list" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Мои книги</a>
         <a href="/add_book" class="w3-bar-item w3-button w3-padding-large ">Добавить книгу</a>
-        <a href="/profile" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Мой профиль</a>
-        <a href="/accounts/logout" class="w3-bar-item w3-button w3-padding-large  w3-hover-red w3-right" onclick="myFunction()" >Выход</a>
+        <a href="/profile" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Мой профиль ({{user.username}}) </a>
+        <a href="/accounts/logout" class="w3-bar-item w3-button w3-padding-large  w3-padding-large w3-hover-red w3-right" onclick="myFunction()" >Выход</a>
     </div>
+
 {% else %}
     <div class="w3-top">
       <div class="w3-bar w3-black w3-card">
-        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a class="w3-bar-item w3-button w3-padding-large  w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
         <a id="head" href="/" class="w3-bar-item  w3-padding-large">Книжный Таймер</a>
         <a href="/signup" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-hover-green w3-right">Создать пользователя</a>
         <a href="/accounts/login" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-hover-green w3-right">Вход</a>
       </div>
     </div>
-    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large  w3-top" style="margin-top:46px">
 <!--       <a href="/" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Книжный таймер</a>-->
-       <a href="/signup" class="w3-bar-item w3-button w3-padding-large  w3-hover-green w3-right" onclick="myFunction()">Создать пользователя</a>
-       <a href="/accounts/login" class="w3-bar-item w3-button w3-padding-large  w3-hover-green w3-right" onclick="myFunction()">Вход</a>
+       <a href="/signup" class="w3-bar-item w3-button   w3-hover-green w3-right" onclick="myFunction()">Создать пользователя</a>
+       <a href="/accounts/login" class="w3-bar-item w3-button   w3-hover-green w3-right" onclick="myFunction()">Вход</a>
     </div>
 {% endif %}
 
