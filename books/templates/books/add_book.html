@@ -15,7 +15,7 @@
 
 <div id="n">
     {% for i in range%}
-        <li> {{book_list|index:i}},      {{autors|index:i}}</li>
+        <li> <a href="http://127.0.0.1:8000/new_book/?book={{book_list|index:i}}&author={{autors|index:i}}">{{book_list|index:i}},{{autors|index:i}}</a></li>
     {% endfor %}
 
     <p>{{Not_book}}</p>

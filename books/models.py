@@ -4,11 +4,14 @@ from django.conf import settings
 
 class Book(models.Model):
     """В этом классе описываются какую информацию мы будем хранить о книгах"""
-    autor_book = models.CharField(max_length=300)
-    book_name = models.CharField(max_length=300)
-    published_date = models.DateTimeField(blank=True, null=True)
     people_book = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    # book_status = status(book_name) # статутс книги - в процессе или уже готова
-    # book_desctiption = models.CharField(max_length=3000) # описание, если оно конечно будет
-    # book_image = ImageField(upload_to='templates') # тут будут хранится картинки обложнки
-    # book_href = models.CharField(max_length=1000) # тут будет ссылка на книгу
+    book_id = models.CharField(max_length=3000)
+
+class Book_desc(models.Model):
+    book_name = models.CharField(max_length=3000)
+    book_autor = models.CharField(max_length=3000)
+    book_desc = models.CharField(max_length=30000)
+    book_link = models.CharField(max_length=3000)
+    book_status = models.CharField(max_length=3000)
+    book_img_link = models.CharField(max_length=3000)
+
