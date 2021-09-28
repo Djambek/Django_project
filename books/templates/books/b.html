@@ -1,20 +1,47 @@
 {% extends 'books/base.html' %}
 {% load static %}
 {% block content %}
-<div>
-    <img src="{{href_image}}">
-    <h1>{{book.book_name}}</h1>
-    <h2>{{ book.autor_book }}</h2>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  padding: 15px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.col-3 {width: 40%;}
+.col-9 {width: 60%;}
+
+</style>
+
+<div class="header">
+  <h1>{{book}}</h1>
+  <h2>{{autor}}</h2>
 </div>
-    <div>
-        <form action="/{{book.id}}/edit/" target="_blank">
-                        <button> <img src={% static "images/edit.png" %} width="20" height="20" href="{{book.id}}/edit/" > </button>
-        </form>
+
+<div class="col-3">
+    <img src="{{href_image}}" width="60%">
+</div>
+
+
+    <div class="col-9">
         <h3>Описание: </h3>
         <p> {{desc}}</p>
         <h3> Статус</h3> <p>{{status}}</p>
         <h3>Ссылка на сайт книги:</h3><a href="{{href_site}}"> {{href_site}}</a>
-        <!--    тут бы картиночку обложнки вставить    -->
     </div>
 <div>
     <form style="text-align: center" action="/books_list">

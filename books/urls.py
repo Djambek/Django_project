@@ -16,11 +16,11 @@ urlpatterns = [
     path("<int:id_>/desc/", views.desc, name='desc'),
     path("how_many", views.peoples, name='how_many'),
     path("add_book", views.add_book, name='add_book'),
-    path('<int:id_>/edit/', views.book_edit, name='book_edit'),
     url(r'^signup/$', views.signup, name='signup'),
     path('<int:id_>/sure_del/', views.sure_del, name='sure_del'),
     path('<int:id_>/del/', views.del_, name='del'),
-    path("profile/", views.pofile, name='profile')
+    path("profile/", views.profile, name='profile'),
+    path("new_book/", views.new_book, name="new_book")
 ]
 urlpatterns += [
 
